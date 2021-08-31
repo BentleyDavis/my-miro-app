@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
+import Airtable from 'airtable';
 
 async function init() {
   const [sticker] = await miro.board.widgets.create({
@@ -8,6 +9,12 @@ async function init() {
   });
 
   await miro.board.viewport.zoomToObject(sticker);
+}
+
+async function airtableTest() {
+  // This code is never run and an error still appears
+  const base = new Airtable({apiKey: ''}).base('');
+  console.log(base)
 }
 
 function App() {
@@ -36,6 +43,14 @@ function App() {
         >
           Read the documentation
         </a>
+
+        <a onClick={airtableTest}
+          className="button button-primary"
+          href=""
+        >
+          Just here to satify validation. This does not need to be clicked
+        </a>
+
       </div>
     </div>
   );
